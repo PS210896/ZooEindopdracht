@@ -14,7 +14,8 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+        $animals = Animal::all();
+        return view('animals.index', compact('animals'));
     }
 
     /**
@@ -24,7 +25,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        return view('animals.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'species' => 'required',
+            'description' => 'required'
+        ]);
+
+        Animal::create($data);
+        return redirect()->route('animals.index');
     }
 
     /**
@@ -46,7 +54,7 @@ class AnimalController extends Controller
      */
     public function show(Animal $animal)
     {
-        //
+        return view('animals.show', compact('animal'));
     }
 
     /**
@@ -57,7 +65,7 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        //
+        return view('animals.edit');
     }
 
     /**
@@ -69,7 +77,17 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'species' => 'required',
+            'description' => 'required'
+        ]);
+        $animal->name = $request->name;
+        $animal->species = $request->species;
+        $animal->description = $request->description;
+        $animal->save();
+
+        return redirect()->route('animals.index');
     }
 
     /**
@@ -80,6 +98,8 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
-        //
+        $animal->delete();
+
+        return back();
     }
 }
