@@ -37,7 +37,7 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
+            'naam' => 'required',
             'species' => 'required',
             'description' => 'required'
         ]);
@@ -78,11 +78,11 @@ class AnimalController extends Controller
     public function update(Request $request, Animal $animal)
     {
         $request->validate([
-            'name' => 'required',
+            'naam' => 'required',
             'species' => 'required',
             'description' => 'required'
         ]);
-        $animal->name = $request->name;
+        $animal->naam = $request->naam;
         $animal->species = $request->species;
         $animal->description = $request->description;
         $animal->save();

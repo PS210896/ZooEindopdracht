@@ -18,7 +18,7 @@
 <form action="{{ route('animals.update', $animal->id) }}" method="POST">
     @csrf
     @method('put')
-    <input type="text" name="name" class="form-control mb-3" placeholder="Animal Name" value="{{$animal->name}}"/>
+    <input type="text" name="naam" class="form-control mb-3" placeholder="Animal Name" value="{{$animal->naam}}"/>
     <input type="text" name="species" class="form-control mb-3" placeholder="Animal Species" value="{{$animal->species}}"/>
     <textarea class="form-control mb-3" name="description" rows="4" placeholder="Description">{{$animal->description}}</textarea>
     <button class="btn btn-primary float-end px-5" type="submit">Submit</button>

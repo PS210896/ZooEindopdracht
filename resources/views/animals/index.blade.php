@@ -19,7 +19,7 @@
         @foreach ($animals as $animal)
         <tr>
             <th scope ="row">{{ $loop->iteration }}</th>
-            <td>{{$animal->name}}</td>
+            <td>{{$animal->naam}}</td>
             <td>{{$animal->species}}</td>
             <td>
                 <div class="dropdown">

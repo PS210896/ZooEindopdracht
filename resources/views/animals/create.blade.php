@@ -17,8 +17,7 @@
 
 <form action="{{ route('animals.store') }}" method="POST">
     @csrf
-    <input type="text"
-    me="name" class="form-control mb-3" placeholder="Animal Name"/>
+    <input type="text" name="naam" class="form-control mb-3" placeholder="Animal Name"/>
     <input type="text" name="species" class="form-control mb-3" placeholder="Animal Species"/>
     <textarea class="form-control mb-3" name="description" rows="4" placeholder="Description"></textarea>
     <button class="btn btn-primary float-end px-5" type="submit">Submit</button>
